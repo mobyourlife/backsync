@@ -5,5 +5,5 @@ var package = require('../package');
 
 program
     .version(package.version)
-    .command('info [id]', 'get info from fanpage [id]')
+    .command('about [id]', 'get info about user [id]')
     .parse(process.argv);
