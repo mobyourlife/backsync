@@ -13,8 +13,8 @@ var args = {
 console.log(`You want info about ${args.id}!`);
 
 auth()
-	.then(function (FB) {
-		console.log('Authorisation successful!')
-	}, function (err) {
-		console.error(err);
+	.then((FB) => {
+		console.log('Authorisation successful!');
+	}, (err) => {
+		console.log(err);
 	});
