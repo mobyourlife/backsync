@@ -21,7 +21,6 @@
   "homepage": "https://bitbucket.org/mobyourlife/backsync#readme",
   "dependencies": {
     "commander": "^2.8.1",
-    "fb": "^0.7.3",
-    "q": "^1.4.1"
+    "fb": "^0.7.3"
   }
 }
