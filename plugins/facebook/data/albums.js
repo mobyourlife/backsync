@@ -1,15 +1,8 @@
-module.exports = (FB, id) => {
-	var promise = new Promise((resolve, reject) => {
-		FB.api(`/v2.4/${id}/albums`, (res) => {
-			if (!res) {
-				reject(new Error('Invalid response from Facebook!'));
-			} else if (res.error) {
-				reject(new Error(`Request error! ${res.error}`));
-			} else {
-				resolve(res);
-			}
-		});
-	});
-
-	return promise;
+module.exports = (id) => {
+	return {
+		version: '2.4',
+		method: 'GET',
+		endpoint: `${id}/albums`,
+		fields: []
+	};
 };

@@ -2,6 +2,7 @@
 
 var program = require('commander'),
 	auth = require('../plugins/facebook/auth'),
+	request = require('../plugins/facebook/request/single'),
 	photos = require('../plugins/facebook/data/photos');
 
 program
@@ -14,5 +15,5 @@ var args = {
 console.log(`Getting photos from album ${args.id}...`);
 
 auth()
-	.then((FB) => photos(FB, args.id), console.error)
+	.then((FB) => request(FB, photos(args.id)), console.error)
 	.then((photos) => console.log(photos), console.error);
