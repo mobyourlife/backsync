@@ -1,0 +1,25 @@
+{
+  "name": "backsync",
+  "version": "4.0.0",
+  "description": "Module responsible for syncing data from Facebook.",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/mobyourlife/backsync.git"
+  },
+  "keywords": [
+    "back",
+    "sync",
+    "facebook",
+    "cli"
+  ],
+  "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
+  "license": "Apache-2.0",
+  "homepage": "https://bitbucket.org/mobyourlife/backsync#readme",
+  "dependencies": {
+    "commander": "^2.8.1"
+  }
+}
