@@ -12,6 +12,7 @@ module.exports = () => {
 			} else if (res.error) {
 				reject(new Error(`Authorisation error from Facebook auth! ${res.error}`));
 			} else {
+				console.log(`Authenticated with token ${res.access_token}!`);
 				FB.setAccessToken(res.access_token);
 				resolve(FB);
 			}
