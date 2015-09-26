@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
-	auth = require('../lib/facebook/auth'),
-	about = require('../lib/facebook/about');
+	auth = require('../plugins/facebook/auth'),
+	about = require('../plugins/facebook/data/about');
 
 program
 	.parse(process.argv);

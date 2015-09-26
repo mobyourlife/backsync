@@ -11,8 +11,8 @@ The commands will barely call these plugins to print data in the console.
 ## Types of Plugins
 The existing types of plugins are:
 * **lib/auth:** Plugins used for authorisation.
-* **lib/data:** Plugins used for getting data from the API.
-* **lib/request:** Plugins for making requests to the API.
+* **lib/data:** Plugins used for creating requests which will eventually be sent to the API.
+* **lib/request:** Plugins for making data requests to the API.
 
 ## Separation of Concerns
 Data plugins shouldn't make any call to the Facebook API. Instead, they'll just return the request method, endpoint and arguments.
