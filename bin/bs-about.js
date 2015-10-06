@@ -14,6 +14,7 @@ var args = {
 
 console.log(`Getting info about user ${args.id}...`);
 
+// TO DO: refactor to pipelined streams
 auth()
-	.then((FB) => request(FB, about(args.id)), console.error)
+	.then((FB) => request(FB, about.request(args.id)), console.error)
 	.then((user) => console.log(user), console.error);

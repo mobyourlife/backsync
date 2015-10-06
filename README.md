@@ -1,6 +1,11 @@
 # Back Sync
 Module responsible for syncing data from Facebook. It's built to be very modular and to offer a CLI tool for testing each sync method.
 
+# Roles
+ * Library to fetch data from Facebook. Be short and to the point: you've to pick which ID you want to sync, so you can sync a single object or many.
+ * CLI tool to consume this library from command line commands.
+ * Background service to consume this library from received messages.
+
 # Plugins Modularity
 Plugins are placed in `lib` folder and CLI commands are placed in `bin` folder.
 
