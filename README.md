@@ -22,3 +22,6 @@ Making the API call is a task for request plugins. There are two request plugins
 * **Batched request:** It's used in the Back Sync service and will perform batches with up to 50 commands to the Facebook API in order to save API calls.
 
 This separation of concerns will make it easy to develop additional data plugins and plug and play into both request plugins whenever desired.
+
+# License
+Apache 2.0.
