@@ -1,8 +1,8 @@
 module.exports = (id) => {
-	return {
-		version: '2.4',
-		method: 'GET',
-		endpoint: `${id}/photos`,
-		fields: []
-	};
-};
+  return {
+    version: '2.4',
+    method: 'GET',
+    endpoint: `${id}/photos`,
+    fields: []
+  }
+}

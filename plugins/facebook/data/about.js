@@ -1,11 +1,12 @@
-module.exports = () => {};
+module.exports = () => {
+}
 
 module.exports.request = (id) => {
-	return {
-		version: '2.5',
-		method: 'GET',
-		endpoint: `${id}`,
-		fields: [
+  return {
+    version: '2.5',
+    method: 'GET',
+    endpoint: `${id}`,
+    fields: [
       // General
       'about',
       'bio',
@@ -99,11 +100,11 @@ module.exports.request = (id) => {
       'features',
       'mpg'
     ]
-	};
-};
+  }
+}
 
 module.exports.transform = (input) => {
-	return {
+  return {
 
-	};
-};
+  }
+}
