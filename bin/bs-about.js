@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const Facebook = require('../social/facebook')
+const Facebook = require('../lib/facebook')
 
 program
   .parse(process.argv)
