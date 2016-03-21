@@ -1,5 +1,5 @@
 {
-  "name": "mobyourlife-backsync",
+  "name": "mob-backsync",
   "version": "4.0.0",
   "description": "Module responsible for syncing data from Facebook.",
   "main": "index.js",
