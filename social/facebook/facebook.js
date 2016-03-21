@@ -2,6 +2,7 @@
 
 // Load modules
 var FB = require('fb')
+var about = require('./data/about')
 
 // Export Facebook integration
 module.exports = Facebook
@@ -12,6 +13,15 @@ module.exports = Facebook
 function Facebook () {
   this.auth = auth
   this.singleRequest = singleRequest
+
+  /**
+   * Return information about a given fanpage.
+   * @param  {Number} fanpageId ID of the fanpage to get information for.
+   * @return {Object}           Information of the given fanpage.
+   */
+  this.about = (fanpageId) => {
+    return singleRequest(about(fanpageId))
+  }
 }
 
 // Authenticate
