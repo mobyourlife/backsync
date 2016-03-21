@@ -20,7 +20,8 @@
   "license": "Apache-2.0",
   "homepage": "https://bitbucket.org/mobyourlife/backsync#readme",
   "dependencies": {
-    "fb": "^0.7.3"
+    "fb": "^0.7.3",
+    "redis": "^2.5.3"
   },
   "devDependencies": {
     "standard": "^6.0.8"
