@@ -3,9 +3,18 @@
 // Set constants
 const CHANNEL_NAME = 'mob-backsync'
 
+// Load settings
+const info = require('../package')
+
 // Load modules
 const redis = require('redis')
+const bunyan = require('bunyan')
 const Facebook = require('../lib/facebook')
+
+// Initialise logging
+const log = bunyan.createLogger({
+  name: info.name
+})
 
 // Initialise Redis client
 var client = redis.createClient()
@@ -16,13 +25,14 @@ client.on('message', listenMessages)
 
 // Subscribe to the pubsub channel
 client.subscribe(CHANNEL_NAME)
+log.info(`Listening to channel #${CHANNEL_NAME}`)
 
 /**
  * Handle client errors.
  * @param  {String} err Error message.
  */
 function handleErrors (err) {
-  console.error('Error:', err)
+  log.error(err)
 }
 
 /**
@@ -34,9 +44,9 @@ function listenMessages (channel, message) {
   let data = tryParseJson(message)
 
   if (data) {
-    console.log('Channel: ' + channel, ', Data:', data)
+    log.info(`Channel: ${channel}, Data:`, data)
   } else {
-    console.log('Channel: ' + channel, ', Message:', message)
+    log.info(`Channel: ${channel}, Message:`, message)
   }
 }
 
