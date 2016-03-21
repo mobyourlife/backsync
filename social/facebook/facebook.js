@@ -11,9 +11,11 @@ module.exports = Facebook
  * Module responsible for integrating with the Facebook API.
  */
 function Facebook () {
+  this.accessToken = ''
+
   // Middlewares to the Facebook API
-  this.auth = auth
-  this.singleRequest
+  this.auth = auth.bind(this)
+  this.singleRequest = singleRequest.bind(this)
 
   // Data definitions for calling the API
   this.about = about
@@ -40,7 +42,7 @@ function auth (clientId, clientSecret) {
           reject(res.error)
         } else {
           // Set access token globally when successfully authenticated
-          FB.setAccessToken(res.acess_token)
+          this.accessToken = res.access_token
           resolve()
         }
       })
@@ -50,24 +52,24 @@ function auth (clientId, clientSecret) {
 
 /**
  * Make endpoint for a new request.
- * @param  {Object} options Object containing endpoint settings.
+ * @param  {Object} request Object containing request settings.
  * @return {String}         Formated endpoint.
  */
-function makeEndpoint (options) {
+function makeEndpoint (request) {
   let endpoint = ''
 
   // Append version field
-  if (options.version) {
-    endpoint += '/v' + options.version
+  if (request.version) {
+    endpoint += '/v' + request.version
   }
 
   // API endpoint
-  endpoint += '/' + options.endpoint
+  endpoint += '/' + request.endpoint
 
   // Filter which fields will be selected
-  if (options.fields) {
+  if (request.fields) {
     endpoint += '?fields='
-    endpoint += options.fields.join(',')
+    endpoint += request.fields.join(',')
   }
 
   return endpoint
@@ -75,14 +77,18 @@ function makeEndpoint (options) {
 
 /**
  * Performs a single request to Facebook API.
- * @param  {[type]} options [description]
+ * @param  {[type]} request [description]
  * @return {[type]}         [description]
  */
-function singleRequest (options) {
+function singleRequest (request) {
   return new Promise((resolve, reject) => {
-    let endpoint = makeEndpoint(options)
+    let endpoint = makeEndpoint(request)
 
-    FB.api(endpoint, options.data, (res) => {
+    let options = {
+      access_token: this.accessToken
+    }
+
+    FB.api(endpoint, options, (res) => {
       if (!res) {
         reject('Empty response!')
       } else if (res.error) {
