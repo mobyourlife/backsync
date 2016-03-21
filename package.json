@@ -2,7 +2,7 @@
   "name": "mobyourlife-backsync",
   "version": "4.0.0",
   "description": "Module responsible for syncing data from Facebook.",
-  "main": "bin/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "standard"
   },
@@ -20,7 +20,6 @@
   "license": "Apache-2.0",
   "homepage": "https://bitbucket.org/mobyourlife/backsync#readme",
   "dependencies": {
-    "commander": "^2.8.1",
     "fb": "^0.7.3"
   },
   "devDependencies": {
