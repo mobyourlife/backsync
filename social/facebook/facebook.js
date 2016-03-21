@@ -11,17 +11,12 @@ module.exports = Facebook
  * Module responsible for integrating with the Facebook API.
  */
 function Facebook () {
+  // Middlewares to the Facebook API
   this.auth = auth
-  this.singleRequest = singleRequest
+  this.singleRequest
 
-  /**
-   * Return information about a given fanpage.
-   * @param  {Number} fanpageId ID of the fanpage to get information for.
-   * @return {Object}           Information of the given fanpage.
-   */
-  this.about = (fanpageId) => {
-    return singleRequest(about(fanpageId))
-  }
+  // Data definitions for calling the API
+  this.about = about
 }
 
 // Authenticate
