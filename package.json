@@ -25,7 +25,8 @@
   "homepage": "https://bitbucket.org/mobyourlife/backsync#readme",
   "dependencies": {
     "bunyan": "^1.8.0",
-    "fb": "^0.7.3"
+    "fb": "^0.7.3",
+    "mongoose": "^4.4.8"
   },
   "devDependencies": {
     "standard": "^6.0.8"
