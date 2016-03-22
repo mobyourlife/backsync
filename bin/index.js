@@ -21,8 +21,10 @@ var client = redis.createClient()
 client.on('error', handleErrors)
 client.on('message', listenMessages)
 
-// Subscribe to the pubsub channel
-for (var ch of channels) {
+// Subscribe to the pubsub channels
+var keys = Object.keys(channels)
+for (var i of keys) {
+  let ch = channels[i]
   log.info(`Listening to channel ${ch.channelName}`)
   client.subscribe(ch.channelName)
 }
