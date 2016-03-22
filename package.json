@@ -26,6 +26,7 @@
   "dependencies": {
     "bunyan": "^1.8.0",
     "fb": "^0.7.3",
+    "mob-api": "github:mobyourlife/v4-api",
     "mongoose": "^4.4.8"
   },
   "devDependencies": {
