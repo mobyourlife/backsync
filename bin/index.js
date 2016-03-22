@@ -39,16 +39,22 @@ function handleErrors (err) {
 
 /**
  * Listen to published messages.
- * @param  {String} channel Channel the message was delivered to.
- * @param  {String} message Message body.
+ * @param  {String} channelName Channel the message was delivered to.
+ * @param  {String} messageBody Message body.
  */
-function listenMessages (channel, message) {
-  let data = tryParseJson(message)
+function listenMessages (channelName, messageBody) {
+  let ch = channels[channelName]
 
-  if (data) {
-    log.info(`Channel: ${channel}, Data:`, data)
+  if (ch) {
+    let data = tryParseJson(messageBody) || messageBody
+
+    try {
+      ch.executeMessage(data)
+    } catch (e) {
+      log.error(`Error from channel "${channelName}": ${e.message}! Received message: "${messageBody}".`)
+    }
   } else {
-    log.info(`Channel: ${channel}, Message:`, message)
+    log.warn(`Invalid channel "${channelName}"! Received message: "${messageBody}".`)
   }
 }
 
