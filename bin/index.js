@@ -1,7 +1,12 @@
 'use strict'
 
 // Set constants
-const CHANNEL_NAME = 'mob-backsync'
+const CHANNEL_NAMES = [
+  'mob#newsite',
+  'mob#email',
+  'mob#sync',
+  'mob#facebook'
+]
 
 // Load settings
 const info = require('../package')
@@ -24,8 +29,10 @@ client.on('error', handleErrors)
 client.on('message', listenMessages)
 
 // Subscribe to the pubsub channel
-client.subscribe(CHANNEL_NAME)
-log.info(`Listening to channel #${CHANNEL_NAME}`)
+for (var ch of CHANNEL_NAMES) {
+  log.info(`Listening to channel ${ch}`)
+  client.subscribe(ch)
+}
 
 /**
  * Handle client errors.
