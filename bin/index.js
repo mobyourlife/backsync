@@ -1,19 +1,12 @@
 'use strict'
 
-// Set constants
-const CHANNEL_NAMES = [
-  'mob#newsite',
-  'mob#email',
-  'mob#sync',
-  'mob#facebook'
-]
-
 // Load settings
 const info = require('../package')
 
 // Load modules
 const redis = require('redis')
 const bunyan = require('bunyan')
+const channels = require('../channels')
 const Facebook = require('../lib/facebook')
 
 // Initialise logging
@@ -29,9 +22,9 @@ client.on('error', handleErrors)
 client.on('message', listenMessages)
 
 // Subscribe to the pubsub channel
-for (var ch of CHANNEL_NAMES) {
-  log.info(`Listening to channel ${ch}`)
-  client.subscribe(ch)
+for (var ch of channels) {
+  log.info(`Listening to channel ${ch.channelName}`)
+  client.subscribe(ch.channelName)
 }
 
 /**
