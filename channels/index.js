@@ -9,7 +9,8 @@ var channelsList = []
 fs.readdirSync(__dirname).forEach((file) => {
   if (file.match(/-channel\.js$/)) {
     let module = require('./' + file)
-    channelsList.push(new module())
+    let instance = new module()
+    channelsList.push(instance)
   }
 })
 
